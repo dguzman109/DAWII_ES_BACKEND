@@ -1,0 +1,28 @@
+package com.books.Model;
+
+import java.time.LocalDate;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import lombok.Data;
+
+@Entity
+@Data
+@Table(name = "users_bookss")
+public class Users_books {
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "user_id", referencedColumnName ="id")
+    private Users users;
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "book_id", referencedColumnName ="id")
+    private Books books;
+
+    private LocalDate checkout_date;
+
+    private LocalDate return_date;
+
+}

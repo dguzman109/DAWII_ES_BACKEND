@@ -1,0 +1,42 @@
+package com.books.Service.Impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.books.Model.Users_books;
+import com.books.Repository.IUsers_booksRepo;
+import com.books.Service.IUsers_booksService;
+
+@Service
+public class Users_booksServiceImpl implements IUsers_booksService {
+
+	@Autowired
+	IUsers_booksRepo repo;
+
+	@Override
+	public List<Users_books> list() {
+		return repo.findAll();
+	}
+
+	@Override
+	public Users_books add(Users_books p) {
+		return repo.save(p);
+	}
+
+	@Override
+	public Users_books update(Users_books p) {
+		return repo.save(p);
+	}
+
+	@Override
+	public void delete(int id) {
+		repo.deleteById(id);
+		
+	}
+
+	
+
+
+}

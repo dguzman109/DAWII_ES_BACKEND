@@ -1,0 +1,9 @@
+package com.books.Repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.books.Model.Books;
+
+public interface IBooksRepo extends JpaRepository<Books, Integer> {
+
+}

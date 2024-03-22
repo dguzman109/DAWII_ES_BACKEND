@@ -1,0 +1,36 @@
+package com.books.Model;
+
+import java.time.LocalDate;
+
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Embeddable
+@Data
+@Table(name = "users_books")
+public class Users_books {
+	@EmbeddedId
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "user_id", referencedColumnName ="id")
+	private Long userId;
+    
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "book_id", referencedColumnName ="id")
+    private Books books;
+
+    private LocalDate checkout_date;
+
+    private LocalDate return_date;
+
+}

@@ -1,0 +1,14 @@
+package com.books.Service;
+
+import java.util.List;
+
+import com.books.Model.Users_books;
+
+
+public interface IUsers_booksService {
+
+	public List<Users_books> list();
+	public Users_books add(Users_books p);
+	public Users_books update(Users_books p);
+	public void delete(int id);
+}
